@@ -7,6 +7,10 @@ app = Flask(__name__)
 def home():
     return "Bot running", 200
 
+@app.route("/ping")
+def ping():
+    return jsonify({"status": "ok", "message": "pong"}), 200
+
 @app.route("/webhook", methods=["POST"])
 def webhook():
     data = request.json
